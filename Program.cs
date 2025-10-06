@@ -1,5 +1,7 @@
 ﻿using Microsoft.SemanticKernel;
 using Microsoft.SemanticKernel.ChatCompletion;
+using Microsoft.SemanticKernel.Connectors.OpenAI;
+using SKDemo;
 
 var builder = Kernel.CreateBuilder();
 
@@ -18,7 +20,10 @@ builder.AddOpenAIChatCompletion(
 #endregion
 
 //PLugins 
+builder.Plugins.AddFromType<NewsPlugin>();
+
 var kernel = builder.Build();
+
 
 var chatService = kernel.GetRequiredService<IChatCompletionService>();
 var chatMessages = new ChatHistory();
@@ -26,9 +31,16 @@ var chatMessages = new ChatHistory();
 while (true)
 {
     Console.WriteLine("Prompt:");
+    //Console.WriteLine();
     chatMessages.AddUserMessage(Console.ReadLine()!);
 
-    var completion = chatService.GetStreamingChatMessageContentsAsync(chatMessages, kernel: kernel);
+    var completion = chatService.GetStreamingChatMessageContentsAsync(
+        chatMessages,
+        new OpenAIPromptExecutionSettings
+        {
+            ToolCallBehavior = ToolCallBehavior.AutoInvokeKernelFunctions
+        },
+        kernel);
 
     var fullMessage = "";
 

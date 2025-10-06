@@ -9,6 +9,7 @@
 
     <ItemGroup>
       <PackageReference Include="Microsoft.SemanticKernel" Version="1.65.0" />
+      <PackageReference Include="SimpleFeedReader" Version="2.0.4" />
     </ItemGroup>
 
 </Project>
