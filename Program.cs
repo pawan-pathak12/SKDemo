@@ -7,15 +7,15 @@ var builder = Kernel.CreateBuilder();
 
 // Services 
 
-#region Connecting AI Serivce
-
-var groqApiKey = Environment.GetEnvironmentVariable("GROQ_API_KEY");
+#region Connection to Ollama
 
 builder.AddOpenAIChatCompletion(
-    "llama-3.1-8b-instant",
-    apiKey: groqApiKey,
-    endpoint: new Uri("https://api.groq.com/openai/v1")
-);
+    "qwen2.5:7b",
+    "not-needed",
+    httpClient: new HttpClient
+    {
+        BaseAddress = new Uri("http://localhost:11434/v1")
+    });
 
 #endregion
 
@@ -28,9 +28,12 @@ var kernel = builder.Build();
 var chatService = kernel.GetRequiredService<IChatCompletionService>();
 var chatMessages = new ChatHistory();
 
+#region Chat loop
+
 while (true)
 {
-    Console.WriteLine("Prompt:");
+    Console.WriteLine();
+    Console.Write("Prompt:");
     //Console.WriteLine();
     chatMessages.AddUserMessage(Console.ReadLine()!);
 
@@ -53,3 +56,5 @@ while (true)
     chatMessages.AddAssistantMessage(fullMessage);
     Console.WriteLine();
 }
+
+#endregion
