@@ -2,6 +2,7 @@
 using Microsoft.SemanticKernel.ChatCompletion;
 using Microsoft.SemanticKernel.Connectors.OpenAI;
 using SKDemo;
+using SKDemo.Plugins;
 
 var builder = Kernel.CreateBuilder();
 
@@ -22,8 +23,19 @@ builder.AddOpenAIChatCompletion(
 //PLugins 
 builder.Plugins.AddFromType<NewsPlugin>();
 
+OpenAIPromptExecutionSettings promptExecutionSettings = new()
+{
+    FunctionChoiceBehavior = FunctionChoiceBehavior.Auto()
+};
+
 var kernel = builder.Build();
 
+kernel.Plugins.AddFromType<LightPlugin>("Lights");
+
+var lights = await kernel.Plugins
+    .GetFunction("Lights", "get_lights")
+    .InvokeAsync(kernel);
+Console.WriteLine(lights);
 
 var chatService = kernel.GetRequiredService<IChatCompletionService>();
 var chatMessages = new ChatHistory();
