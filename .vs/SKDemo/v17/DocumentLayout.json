@@ -5,10 +5,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{0218632E-639A-4E51-A03D-284ECF2DFC31}|SKDemo.csproj|c:\\users\\nitro v\\source\\repos\\agentic ai\\skdemo\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{0218632E-639A-4E51-A03D-284ECF2DFC31}|SKDemo.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0218632E-639A-4E51-A03D-284ECF2DFC31}|SKDemo.csproj|c:\\users\\nitro v\\source\\repos\\agentic ai\\skdemo\\newsplugin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0218632E-639A-4E51-A03D-284ECF2DFC31}|SKDemo.csproj|solutionrelative:newsplugin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,7 +14,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 7,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Bookmark",
@@ -46,26 +42,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "NewsPlugin.cs",
-              "DocumentMoniker": "C:\\Users\\NITRO V\\source\\repos\\Agentic AI\\SKDemo\\NewsPlugin.cs",
-              "RelativeDocumentMoniker": "NewsPlugin.cs",
-              "ToolTip": "C:\\Users\\NITRO V\\source\\repos\\Agentic AI\\SKDemo\\NewsPlugin.cs",
-              "RelativeToolTip": "NewsPlugin.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-13T10:27:28.631Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\NITRO V\\source\\repos\\Agentic AI\\SKDemo\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
               "ToolTip": "C:\\Users\\NITRO V\\source\\repos\\Agentic AI\\SKDemo\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAADIAAAAAAAAAAAAYwDYAAAA1AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-06T07:12:16.452Z",
               "EditorCaption": ""

@@ -3,69 +3,79 @@ using Microsoft.SemanticKernel.ChatCompletion;
 using Microsoft.SemanticKernel.Connectors.OpenAI;
 using SKDemo.Plugins;
 
-var builder = Kernel.CreateBuilder();
-
-// Services 
-
-#region Connection to Ollama
-
-builder.AddOpenAIChatCompletion(
-    "qwen2.5:7b",
-    "not-needed",
-    httpClient: new HttpClient
-    {
-        BaseAddress = new Uri("http://localhost:11434/v1")
-    });
-
-#endregion
-
-//PLugins 
-
-
-OpenAIPromptExecutionSettings promptExecutionSettings = new()
-{
-    FunctionChoiceBehavior = FunctionChoiceBehavior.Auto()
-};
-
-var kernel = builder.Build();
-
-kernel.Plugins.AddFromType<LightPlugin>("Lights");
-
-var lights = await kernel.Plugins
-    .GetFunction("Lights", "get_lights")
-    .InvokeAsync(kernel);
-Console.WriteLine(lights);
-
+// Setup Kernel
+var kernel = CreateKernel();
 var chatService = kernel.GetRequiredService<IChatCompletionService>();
-var chatMessages = new ChatHistory();
+var chatHistory = CreateChatHistory();
 
-#region Chat loop
+// Register plugins
+kernel.Plugins.AddFromType<LightPlugin>();
 
-while (true)
+// Main chat loop
+await RunChatLoop(chatService, chatHistory, kernel);
+
+// ========== METHODS ==========
+
+static Kernel CreateKernel()
 {
-    Console.WriteLine();
-    Console.Write("Prompt:");
-    //Console.WriteLine();
-    chatMessages.AddUserMessage(Console.ReadLine()!);
-
-    var completion = chatService.GetStreamingChatMessageContentsAsync(
-        chatMessages,
-        new OpenAIPromptExecutionSettings
-        {
-            ToolCallBehavior = ToolCallBehavior.AutoInvokeKernelFunctions
-        },
-        kernel);
-
-    var fullMessage = "";
-
-    await foreach (var context in completion)
-    {
-        Console.Write(context.Content);
-        fullMessage = context.Content;
-    }
-
-    chatMessages.AddAssistantMessage(fullMessage);
-    Console.WriteLine();
+    return Kernel.CreateBuilder()
+        .AddOpenAIChatCompletion(
+            modelId: "qwen2.5:7b",
+            apiKey: "not-needed",
+            httpClient: new HttpClient
+            {
+                BaseAddress = new Uri("http://localhost:11434/v1")
+            })
+        .Build();
 }
 
-#endregion
+static ChatHistory CreateChatHistory()
+{
+    var history = new ChatHistory();
+    history.AddSystemMessage("You are a helpful Personal Assistant.");
+    return history;
+}
+
+
+static async Task RunChatLoop(IChatCompletionService chatService, ChatHistory history, Kernel kernel)
+{
+    var settings = new OpenAIPromptExecutionSettings
+    {
+        FunctionChoiceBehavior = FunctionChoiceBehavior.Auto()
+    };
+
+    while (true)
+    {
+        Console.Write("\nUser > ");
+        var userInput = Console.ReadLine();
+
+        if (string.IsNullOrWhiteSpace(userInput)) continue;
+
+        history.AddUserMessage(userInput);
+        Console.ForegroundColor = ConsoleColor.Green;
+        Console.Write($"\nAssistant >");
+        var response = await GetAIResponse(chatService, history, settings, kernel);
+
+
+        Console.WriteLine(response);
+
+        history.AddAssistantMessage(response);
+        Console.ResetColor();
+    }
+}
+
+static async Task<string> GetAIResponse(IChatCompletionService chatService, ChatHistory history,
+    OpenAIPromptExecutionSettings settings, Kernel kernel)
+{
+    var fullMessage = new System.Text.StringBuilder();
+
+    var stream = chatService.GetStreamingChatMessageContentsAsync(history, settings, kernel);
+
+    await foreach (var chunk in stream)
+    {
+        Console.Write(chunk.Content);
+        fullMessage.Append(chunk.Content);
+    }
+
+    return fullMessage.ToString();
+}
