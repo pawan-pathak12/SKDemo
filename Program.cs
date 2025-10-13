@@ -1,7 +1,6 @@
 ﻿using Microsoft.SemanticKernel;
 using Microsoft.SemanticKernel.ChatCompletion;
 using Microsoft.SemanticKernel.Connectors.OpenAI;
-using SKDemo;
 using SKDemo.Plugins;
 
 var builder = Kernel.CreateBuilder();
@@ -21,7 +20,7 @@ builder.AddOpenAIChatCompletion(
 #endregion
 
 //PLugins 
-builder.Plugins.AddFromType<NewsPlugin>();
+
 
 OpenAIPromptExecutionSettings promptExecutionSettings = new()
 {

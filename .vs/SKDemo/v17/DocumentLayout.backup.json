@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\NITRO V\\source\\repos\\Agentic AI\\SKDemo\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{0218632E-639A-4E51-A03D-284ECF2DFC31}|SKDemo.csproj|c:\\users\\nitro v\\source\\repos\\agentic ai\\skdemo\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0218632E-639A-4E51-A03D-284ECF2DFC31}|SKDemo.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{0218632E-639A-4E51-A03D-284ECF2DFC31}|SKDemo.csproj|c:\\users\\nitro v\\source\\repos\\agentic ai\\skdemo\\newsplugin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0218632E-639A-4E51-A03D-284ECF2DFC31}|SKDemo.csproj|solutionrelative:newsplugin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0218632E-639A-4E51-A03D-284ECF2DFC31}|SKDemo.csproj|c:\\users\\nitro v\\source\\repos\\agentic ai\\skdemo\\skdemo.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{0218632E-639A-4E51-A03D-284ECF2DFC31}|SKDemo.csproj|solutionrelative:skdemo.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+      "AbsoluteMoniker": "D:0:0:{0218632E-639A-4E51-A03D-284ECF2DFC31}|SKDemo.csproj|c:\\users\\nitro v\\source\\repos\\agentic ai\\skdemo\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0218632E-639A-4E51-A03D-284ECF2DFC31}|SKDemo.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -41,26 +41,31 @@
               "Name": "ST:0:0:{1c64b9c2-e352-428e-a56d-0ace190b99a6}"
             },
             {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "SKDemo.csproj",
-              "DocumentMoniker": "C:\\Users\\NITRO V\\source\\repos\\Agentic AI\\SKDemo\\SKDemo.csproj",
-              "RelativeDocumentMoniker": "SKDemo.csproj",
-              "ToolTip": "C:\\Users\\NITRO V\\source\\repos\\Agentic AI\\SKDemo\\SKDemo.csproj",
-              "RelativeToolTip": "SKDemo.csproj",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-10-06T07:34:50.484Z"
+              "$type": "Bookmark",
+              "Name": "ST:1924764005:0:{13143d73-808b-4a2f-bebb-ccbe9c93fe37}"
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "NewsPlugin.cs",
+              "DocumentMoniker": "C:\\Users\\NITRO V\\source\\repos\\Agentic AI\\SKDemo\\NewsPlugin.cs",
+              "RelativeDocumentMoniker": "NewsPlugin.cs",
+              "ToolTip": "C:\\Users\\NITRO V\\source\\repos\\Agentic AI\\SKDemo\\NewsPlugin.cs",
+              "RelativeToolTip": "NewsPlugin.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-13T10:27:28.631Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\NITRO V\\source\\repos\\Agentic AI\\SKDemo\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
               "ToolTip": "C:\\Users\\NITRO V\\source\\repos\\Agentic AI\\SKDemo\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAC4AAAAEAAAAAAAAAA==",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAAACoAAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-06T07:12:16.452Z",
               "EditorCaption": ""
