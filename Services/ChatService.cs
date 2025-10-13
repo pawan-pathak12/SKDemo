@@ -71,3 +71,47 @@ internal class ChatService
 
     #endregion
 }
+
+public class RefactorChatSerivce
+/*
+ * What to do here : Seperate code of Chatloop , StrtChat and keep Agent code in StrtChatAsync -sperate it after seperating code of Chatloop and strtchatAsync
+ */
+{
+    public async Task StartChatAsync(Kernel kernel)
+    {
+        var history = new ChatHistory();
+        history.AddSystemMessage("You are Asistant of user , you have to answer each question i short and sweet way ");
+
+        kernel.GetRequiredService<IChatCompletionService>();
+
+        //auto calling function 
+    }
+
+    public async Task ChatLoopAsync(ChatHistory chatHistory, IChatCompletionService chatCompletionService)
+    {
+        while (true)
+        {
+            Console.WriteLine("/n User > ");
+            var userPrompt = Console.ReadLine()!;
+
+            #region Input Validation
+
+            if (userPrompt.ToLower() == "exit" || userPrompt.ToLower() == "quit")
+            {
+                Console.WriteLine("exting.....");
+                break;
+            }
+
+            #endregion
+
+            chatHistory.AddUserMessage(userPrompt);
+
+            var response = await chatCompletionService.GetChatMessageContentAsync(userPrompt);
+            Console.BackgroundColor = ConsoleColor.Gray;
+            Console.Write("/n Asistant > ");
+            Console.WriteLine(response);
+            Console.ResetColor();
+            chatHistory.AddAssistantMessage(userPrompt);
+        }
+    }
+}
