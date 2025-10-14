@@ -4,27 +4,30 @@ using Microsoft.SemanticKernel.Connectors.OpenAI;
 
 namespace SKDemo.Services;
 
-public static class RefactorChatSerivce
-/*
- * What to do here : Seperate code of Chatloop , StrtChat and keep Agent code in StrtChatAsync -sperate it after seperating code of Chatloop and strtchatAsync
- */
+public static class ChatService
 {
     public static async Task StartChatAsync(Kernel kernel)
     {
         var history = new ChatHistory();
-        history.AddSystemMessage("You are Asistant of user , you have to answer each question i short and sweet way ");
+        history.AddSystemMessage(@"You are a helpful AI assistant. 
+        Keep responses clear, concise, and friendly.
+        Answer questions directly without unnecessary details.
+        Use simple language that's easy to understand.");
 
-        var chatSerice = kernel.GetRequiredService<IChatCompletionService>();
+        var chatService = kernel.GetRequiredService<IChatCompletionService>();
 
-        //auto calling function 
         OpenAIPromptExecutionSettings executionSettings = new()
         {
             FunctionChoiceBehavior = FunctionChoiceBehavior.Auto()
         };
-        await ChatLoopAsync(history, chatSerice);
+
+        await ChatLoopAsync(history, chatService, executionSettings, kernel);
     }
 
-    public static async Task ChatLoopAsync(ChatHistory chatHistory, IChatCompletionService chatCompletionService)
+    private static async Task ChatLoopAsync(ChatHistory chatHistory,
+        IChatCompletionService chatCompletionService,
+        OpenAIPromptExecutionSettings executionSettings,
+        Kernel kernel)
     {
         while (true)
         {
@@ -35,7 +38,7 @@ public static class RefactorChatSerivce
 
             if (userPrompt.ToLower() == "exit" || userPrompt.ToLower() == "quit")
             {
-                Console.WriteLine("exting.....");
+                Console.WriteLine("Exiting...");
                 break;
             }
 
@@ -43,12 +46,19 @@ public static class RefactorChatSerivce
 
             chatHistory.AddUserMessage(userPrompt);
 
-            var response = await chatCompletionService.GetChatMessageContentAsync(userPrompt);
-            Console.Write("\n Asistant > ");
+            var response = await chatCompletionService.GetChatMessageContentAsync(
+                chatHistory, executionSettings, kernel);
+
+            #region Display Assistant Response
+
+            Console.Write("\nAssistant > ");
             Console.ForegroundColor = ConsoleColor.DarkBlue;
             Console.WriteLine(response);
             Console.ResetColor();
-            chatHistory.AddAssistantMessage(userPrompt);
+
+            #endregion
+
+            chatHistory.AddAssistantMessage(response.Content);
         }
     }
 }

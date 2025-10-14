@@ -1,15 +1,12 @@
 ﻿using Microsoft.SemanticKernel;
-using Microsoft.SemanticKernel.ChatCompletion;
 using SKDemo.Services;
 
 // Setup Kernel
 var kernel = CreateKernel();
-var chatService = kernel.GetRequiredService<IChatCompletionService>();
-var chathistory = new ChatHistory();
 CreateKernel();
 
 
-await RefactorChatSerivce.StartChatAsync(kernel);
+await ChatService.StartChatAsync(kernel);
 
 #region Methods
 
