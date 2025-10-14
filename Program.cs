@@ -7,9 +7,9 @@ var kernel = CreateKernel();
 var chatService = kernel.GetRequiredService<IChatCompletionService>();
 var chathistory = new ChatHistory();
 CreateKernel();
-var chatservice = new ChatService();
 
-await chatservice.StartChatAsync(kernel, chatService, chathistory);
+
+await RefactorChatSerivce.StartChatAsync(kernel);
 
 #region Methods
 
