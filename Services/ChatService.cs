@@ -8,20 +8,30 @@ public static class ChatService
 {
     public static async Task StartChatAsync(Kernel kernel)
     {
-        var history = new ChatHistory();
-        history.AddSystemMessage(@"You are a helpful AI assistant. 
+        var (history, isNewConversation) = FileService.LoadConversation();
+        if (isNewConversation)
+        {
+            history.AddSystemMessage(@"You are a helpful AI assistant. 
         Keep responses clear, concise, and friendly.
         Answer questions directly without unnecessary details.
         Use simple language that's easy to understand.");
+            Console.WriteLine(" New conversation started");
+        }
+        else
+        {
+            Console.WriteLine($" Loaded previous conversation ({history.Count} messages)");
+        }
 
         var chatService = kernel.GetRequiredService<IChatCompletionService>();
 
+        //auto function  calling 
         OpenAIPromptExecutionSettings executionSettings = new()
         {
             FunctionChoiceBehavior = FunctionChoiceBehavior.Auto()
         };
 
         await ChatLoopAsync(history, chatService, executionSettings, kernel);
+        FileService.SaveConversation(history);
     }
 
     private static async Task ChatLoopAsync(ChatHistory chatHistory,
@@ -44,6 +54,7 @@ public static class ChatService
 
             #endregion
 
+//Add to history 
             chatHistory.AddUserMessage(userPrompt);
 
             var response = await chatCompletionService.GetChatMessageContentAsync(
