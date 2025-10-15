@@ -1,6 +1,6 @@
 ﻿namespace SKDemo.Models;
 
-public class LightModel
+public class Light
 {
     public int Id { get; set; }
     public string Name { get; set; }

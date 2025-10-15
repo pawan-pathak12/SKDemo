@@ -1,10 +1,14 @@
 ﻿using Microsoft.SemanticKernel;
+using SKDemo.Plugins;
 using SKDemo.Services;
 
 // Setup Kernel
 var kernel = CreateKernel();
 CreateKernel();
 
+//plugin 
+kernel.Plugins.AddFromType<LightPlugin>();
+kernel.Plugins.AddFromType<WeatherPlugin>();
 
 await ChatService.StartChatAsync(kernel);
 
