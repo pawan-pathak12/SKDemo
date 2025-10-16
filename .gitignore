@@ -1,6 +1,10 @@
 bin/
 obj/
-/packages/
-riderModule.iml
-/_ReSharper.Caches/
+obj/Debug
+*.dll
+*.pdb
+*.cache
+*.log
+*.user
 .vs/
+appsettings.json

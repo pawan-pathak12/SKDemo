@@ -3,14 +3,6 @@
   "WorkspaceRootPath": "C:\\Users\\NITRO V\\source\\repos\\Agentic AI\\SKDemo\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{0218632E-639A-4E51-A03D-284ECF2DFC31}|SKDemo.csproj|c:\\users\\nitro v\\source\\repos\\agentic ai\\skdemo\\services\\chatservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0218632E-639A-4E51-A03D-284ECF2DFC31}|SKDemo.csproj|solutionrelative:services\\chatservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0218632E-639A-4E51-A03D-284ECF2DFC31}|SKDemo.csproj|c:\\users\\nitro v\\source\\repos\\agentic ai\\skdemo\\skdemo.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{0218632E-639A-4E51-A03D-284ECF2DFC31}|SKDemo.csproj|solutionrelative:skdemo.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{0218632E-639A-4E51-A03D-284ECF2DFC31}|SKDemo.csproj|c:\\users\\nitro v\\source\\repos\\agentic ai\\skdemo\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{0218632E-639A-4E51-A03D-284ECF2DFC31}|SKDemo.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
@@ -22,34 +14,8 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 6,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "ChatService.cs",
-              "DocumentMoniker": "C:\\Users\\NITRO V\\source\\repos\\Agentic AI\\SKDemo\\Services\\ChatService.cs",
-              "RelativeDocumentMoniker": "Services\\ChatService.cs",
-              "ToolTip": "C:\\Users\\NITRO V\\source\\repos\\Agentic AI\\SKDemo\\Services\\ChatService.cs",
-              "RelativeToolTip": "Services\\ChatService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAA/AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-13T10:46:27.133Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "SKDemo",
-              "DocumentMoniker": "C:\\Users\\NITRO V\\source\\repos\\Agentic AI\\SKDemo\\SKDemo.csproj",
-              "RelativeDocumentMoniker": "SKDemo.csproj",
-              "ToolTip": "C:\\Users\\NITRO V\\source\\repos\\Agentic AI\\SKDemo\\SKDemo.csproj",
-              "RelativeToolTip": "SKDemo.csproj",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-10-13T10:46:00.094Z",
-              "EditorCaption": ""
-            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
@@ -76,15 +42,15 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\NITRO V\\source\\repos\\Agentic AI\\SKDemo\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
               "ToolTip": "C:\\Users\\NITRO V\\source\\repos\\Agentic AI\\SKDemo\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAAAEgAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAwAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-06T07:12:16.452Z",
+              "WhenOpened": "2025-10-16T10:40:17.736Z",
               "EditorCaption": ""
             }
           ]

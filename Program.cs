@@ -8,11 +8,13 @@ CreateKernel();
 
 //plugin 
 kernel.Plugins.AddFromType<LightPlugin>();
-kernel.Plugins.AddFromType<WeatherPlugin>();
+//kernel.Plugins.AddFromType<WeatherPlugin>();
+kernel.Plugins.AddFromType<WeatherRealTimePlugin>();
+
 
 await ChatService.StartChatAsync(kernel);
 
-#region Methods
+#region Connection to Ollama
 
 static Kernel CreateKernel()
 {
@@ -27,4 +29,6 @@ static Kernel CreateKernel()
         .Build();
 }
 
+
 #endregion
+
